@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guonima.mapper.MenuMapper">
+
+    <resultMap id="menuResultMap" type="menuDO">
+        <id column="id" property="id" jdbcType="BIGINT"  />
+        <result column="parent_id" property="parentId" jdbcType="BIGINT"  />
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="menu_key" property="menuKey" jdbcType="INTEGER"/>
+        <result column="router" property="router" jdbcType="VARCHAR"/>
+        <result column="icon" property="icon" jdbcType="VARCHAR"/>
+        <result column="level" property="level" jdbcType="INTEGER"/>
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
+        <result column="enabled" property="enabled" jdbcType="INTEGER"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="DATE"/>
+    </resultMap>
+
+    <sql id="menuColumns" >
+        id, parent_id, name, menu_key, router, icon, level,
+        sort, remark, enabled, create_time
+    </sql>
+
+    <select id="getMenusInfo"  resultMap="menuResultMap" parameterType="menuDO">
+        SELECT
+        <include refid="menuColumns" />
+        FROM menu
+    </select>
+</mapper>

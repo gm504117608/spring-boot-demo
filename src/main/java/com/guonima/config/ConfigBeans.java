@@ -1,4 +1,4 @@
-package com.guonima.beans;
+package com.guonima.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
