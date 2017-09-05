@@ -12,5 +12,12 @@ import java.util.List;
 //  使用Mapper注解或者在启动类Application中使用MapperScan扫描mapper接口
 @Mapper
 public interface MenuMapper {
+
     public List<MenuDO> getMenusInfo();
+
+    public int insert(MenuDO menuDO);
+
+    public int update(MenuDO menuDO);
+
+    public int delete(MenuDO menuDO);
 }

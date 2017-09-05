@@ -62,15 +62,20 @@
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>2.2.2</version>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.2.2</version>
-			<scope>provided</scope>
 		</dependency>
 		<!-- restfulAPI维护工具Swagger2的依赖end-->
+
+		<!--alibaba json 处理包-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.38</version>
+		</dependency>
 
 	</dependencies>
 

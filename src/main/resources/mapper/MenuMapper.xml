@@ -21,6 +21,52 @@
         sort, remark, enabled, create_time
     </sql>
 
+    <!-- 新增信息 -->
+    <insert id="insert" parameterType="menuDO" useGeneratedKeys="true" keyProperty="id">
+        insert into menu (
+            parent_id, name, menu_key, router, icon, level,
+            sort, remark, enabled, create_time
+        )values (
+            trim(#{parentId}), trim(#{name}), trim(#{menuKey}), trim(#{router}),
+            trim(#{icon}), trim(#{level}), trim(#{sort}), trim(#{remark}), trim(#{enabled}), sysdate()
+        )
+    </insert>
+
+    <!-- 修改信息 -->
+    <update id="update" parameterType="menuDO">
+        update menu
+        <set>
+            <if test="name != null and name != ''">
+                name = trim(#{name}),
+            </if>
+            <if test="router != null and router != ''">
+                router = trim(#{router}),
+            </if>
+            <if test="enabled != null">
+                enabled = trim(#{enabled}),
+            </if>
+            <if test="menuKey != null">
+                menu_key = trim(#{menuKey}),
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = trim(#{remark}),
+            </if>
+        </set>
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="menuKey != null">
+                and menu_key = #{menuKey}
+            </if>
+        </where>
+    </update>
+
+    <!-- 删除信息  -->
+    <delete id="delete" parameterType="menuDO">
+        delete from menu where menu_key = trim(#{menuKey})
+    </delete>
+
     <select id="getMenusInfo"  resultMap="menuResultMap" parameterType="menuDO">
         SELECT
         <include refid="menuColumns" />

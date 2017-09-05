@@ -14,14 +14,14 @@ import java.util.Map;
 public class TestController {
 
     @RequestMapping(value = "/index")
-    public String hello(){
+    public String hello() {
         return "hello world! Spring Boot";
     }
 
     @RequestMapping(value = "/json")
-    public Map json (){
+    public Map json() {
         Map a = new HashMap();
-        a.put("name","hello");
+        a.put("name", "hello");
         a.put("age", 42);
         a.put("address", "small future");
         return a;

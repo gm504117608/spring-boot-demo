@@ -2,17 +2,21 @@ package com.guonima;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.guonima.config.ConfigBeans;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
 @SpringBootApplication
 @EnableConfigurationProperties({ConfigBeans.class})
+@EnableTransactionManagement // 启用注解事务管理，等同于xml配置方式的 <tx:annotation-driven />
+//@MapperScan("com.guonima.mapper") // 扫描mapper接口
 public class Application {
 
     public static void main(String[] args) {

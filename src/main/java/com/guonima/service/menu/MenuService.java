@@ -13,4 +13,6 @@ public interface MenuService {
     public List<MenuDO> getMenusInfo();
 
     public List<MenuDO> getMenusInfoMybatis();
+
+    public int save(MenuDO menuDO);
 }

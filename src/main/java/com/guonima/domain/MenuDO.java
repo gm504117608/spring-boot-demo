@@ -7,6 +7,7 @@ import java.util.Date;
 
 /**
  * 菜单实体
+ *
  * @author guonima
  * @create 2017-09-04 15:30
  */
